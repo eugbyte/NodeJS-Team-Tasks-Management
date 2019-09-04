@@ -1,0 +1,12 @@
+table {
+    width: 99%;
+    margin-left: 10px;
+}
+
+.table-header {
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+

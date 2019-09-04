@@ -1,0 +1,49 @@
+<%- include('includes/head.ejs') %>
+<link rel="stylesheet" type="text/css" href="/css/tasksView.css">
+
+<body>
+    <%- include('includes/navbar.ejs') %> 
+
+    <h4 class="table-header">Current tasks of ALL employees</h4>
+
+    <!-- <% if (isNotBoss) { %>
+        <script>
+            alert("Only boss can delete tasks");
+        </script>
+    <% } %> -->
+    
+    <div class="main-table">
+        <table class="table-striped">
+            <tr>
+                <th>Task</th>
+                <th>User</th>
+                <th>Edit</th>
+                <th>Delete</th>
+                <th>Completed</th>
+            </tr>
+                <% if (tasksArr.length > 0) { %>  
+                <% for (let i = 0; i < tasksArr.length; i++) { %>
+                <tr>
+                    <td><%= tasksArr[i].name %></td>
+                    <td><%= emailsArr[i] %></td>
+                    <td><a href="/task-form/update/<%= tasksArr[i]._id %>?arrIndexEmail=<%= emailsArr[i] %>" class="btn btn-sm btn-info">Edit Task</a></td>
+                    <td><form action="/delete" method="POST">
+                        <input type="submit" name="submit" class="btn btn-sm btn-warning" value="Delete">
+                        <input type="hidden" name="_id" value="<%= tasksArr[i]._id %>">
+                        <input type="hidden" name="arrIndexEmail" value="<%= emailsArr[i] %>">
+                    </form></td>
+                    <td><form action="/complete" method="POST">
+                        <input type="submit" name="submit" class="btn btn-sm btn-success" value="Completed">
+                        <input type="hidden" name="_id" value="<%= tasksArr[i]._id %>">
+                        <input type="hidden" name="arrIndexEmail" value="<%= emailsArr[i] %>">
+                    </form></td>
+                </tr>
+                <% } %>
+            <% } %>
+        </table>
+    </div>
+
+</body>
+
+
+<%- include('includes/foot.ejs') %>

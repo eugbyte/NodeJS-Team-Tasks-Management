@@ -1,0 +1,15 @@
+.loggedin {
+    color: #00cc00;
+}
+
+.loggedout {
+    color: red;
+}
+
+.signup {
+    color: white
+}
+
+.main-table {
+    width: 100vw;
+}

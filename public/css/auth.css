@@ -1,0 +1,11 @@
+.form-signin {
+    width: 60%;
+    margin: 10px auto
+}
+
+.body-p__error-message {
+    /* border: solid black; */
+    height: 35px;
+    background-color: rgba(226, 40, 40, 0.767);
+    text-align: center;
+}
