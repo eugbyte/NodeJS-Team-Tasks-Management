@@ -9,12 +9,20 @@ module.exports.getTasks = async (req, res) => {
             .then();
         const emailsArr = populatedTasksArr.map(task => task.user.email);
         const tasksArr = await taskModel.find().then();
+        
+        var currentUserEmail;
+        if (req.session.user) {
+            currentUserEmail = req.session.user.email;
+        } else {
+            currentUserEmail = null;
+        }
+        console.log(currentUserEmail);      
             
         res.render("tasksView", {
                     tasksArr : tasksArr,
                     isLoggedIn: req.session.isLoggedIn,
                     emailsArr : emailsArr,
-                    isNotBoss: req.flash("isNotBoss")[0]
+                    currentUserEmail: currentUserEmail 
         });
     } catch(error) {
         console.log(error);

@@ -9,4 +9,8 @@ table {
     font-weight: bold;
 }
 
-
+#grey-buttons input, #grey-buttons a {
+    background-color: rgb(214, 209, 209);
+    border-color: rgb(214, 209, 209);
+    color: white;
+}
